@@ -1,0 +1,30 @@
+<% layout('/layouts/boilerplate') -%>
+<body>
+    <div class="row">
+        <div class="col-lg-6 col-md-8 col-sm-10 offset-lg-3 offset-md-2 offset-sm-1">
+            <h2 class="mt-3">Booking for <%= listing.title %></h2>
+            <p class="my-4">User: @<i><%= currUser.username %></i></p>
+            <form method="post" action="/booking/<%= listing._id %>" class="needs-validation booking-form" data-price="<%= listing.price %>" novalidate>
+                <div class="fields" style="display: flex; justify-content: space-around;">
+                    <div class="mb-3 col-6 mx-1">
+                        <label for="from" class="form-label">From</label>
+                        <input type="date" name="booking[from]" class="form-control from-date" required>
+                        <div class="invalid-feedback">
+                            Please select a date.
+                        </div>
+                    </div>
+                    <div class="mb-3 col-6 mx-1">
+                        <label for="to" class="form-label">To</label>
+                        <input type="date" name="booking[to]" class="form-control to-date" required>
+                        <div class="invalid-feedback">
+                            Please select a date.
+                        </div>
+                    </div>
+                </div>
+                <p><b>Total Price:</b> &#8377;<span class="total-price">0</span></p>
+                <button class="btn float-end" style="background-color: #fe424d;color: white;">Book</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="/js/price.js"></script>
