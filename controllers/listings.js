@@ -95,12 +95,17 @@ module.exports.destroyListing = async (req,res) => {
 
 module.exports.searchListing = async (req,res) => {
     let {key} = req.body;
-    const listings = await Listing.find({
+    let listings = await Listing.find({
         $or: [
             { title: { $regex: key, $options: 'i'}},
             { location: { $regex: key, $options: 'i'}},
             { country: { $regex: key, $options: 'i'}}
         ]
     });
+
+    if(res.locals.currUser){
+        listings = listings.filter(l => !l.owner.equals(res.locals.currUser._id));
+    }
+
     res.render('listings/index.ejs', {listings});
 }
