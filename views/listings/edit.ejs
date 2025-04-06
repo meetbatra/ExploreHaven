@@ -33,14 +33,22 @@
             <label for="image" class="form-label">New Image</label>
             <input type="file" name="listing[image]" class="form-control">
         </div>
-        <div class="mb-3">
-            <label for="price" class="form-label">Price</label>
-            <input type="number" name="listing[price]" value="<%= listing.price %>" class="form-control" required>
-            <div class="valid-feedback">
-                Looks good!
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" name="listing[price]" value="<%= listing.price %>" class="form-control" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please choose a price.
+                </div>
             </div>
-            <div class="invalid-feedback">
-                Please choose a price.
+            <div class="mb-3 col-md-6">
+                <label for="category" class="form-label">Category</label>
+                <select name="listing[category]" class="form-select" disabled>
+                    <option value="<%= listing.category %>" selected><%= listing.category %></option>
+                </select>
             </div>
         </div>
         <div class="row">
