@@ -46,9 +46,10 @@
             </div>
             <div class="mb-3 col-md-6">
                 <label for="category" class="form-label">Category</label>
-                <select name="listing[category]" class="form-select" disabled>
+                <select class="form-select" disabled>
                     <option value="<%= listing.category %>" selected><%= listing.category %></option>
                 </select>
+                <input type="hidden" name="listing[category]" value="<%= listing.category %>">
             </div>
         </div>
         <div class="row">
