@@ -17,20 +17,34 @@
                 <% if(userBookings.length !== 0){ %>
                 <div class="bookings">
                     <% for(booking of userBookings){ %>
-                        <a href="/listings/<%= booking.listing._id %>" class="card-link">
+                        <% if(booking.listing){ %>
+                            <a href="/listings/<%= booking.listing._id %>" class="card-link">
+                                <div class="card border user-booking mx-1">
+                                    <div class="col-5 booking-img"><img src="<%= booking.listing.image.url %>" class="card-img-top" style="height: 8rem;"></div>
+                                    <div class="card-img-overlay"></div>
+                                    <div class="card-body col-7 mx-2">
+                                        <h6 class="card-title mb-3"><%= booking.listing.title %></h6>
+                                        <p class="card-text">
+                                            From: <%= booking.from.toString().split(' ').slice(0,4).join(' ') %><br>
+                                            To: <%= booking.to.toString().split(' ').slice(0,4).join(' ') %><br>
+                                            <b>&#8377;<%= booking.price.toLocaleString('en-IN') %></b>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        <% }else{ %>
                             <div class="card border user-booking mx-1">
-                                <div class="col-5 booking-img"><img src="<%= booking.listing.image.url %>" class="card-img-top" style="height: 8rem;"></div>
-                                <div class="card-img-overlay"></div>
                                 <div class="card-body col-7 mx-2">
-                                    <h6 class="card-title mb-3"><%= booking.listing.title %></h6>
+                                    <h6 class="card-title mb-3"><b>Listing Unavailable!</b></h6>
                                     <p class="card-text">
+                                        This listing has been removed.<br>
                                         From: <%= booking.from.toString().split(' ').slice(0,4).join(' ') %><br>
                                         To: <%= booking.to.toString().split(' ').slice(0,4).join(' ') %><br>
                                         <b>&#8377;<%= booking.price.toLocaleString('en-IN') %></b>
                                     </p>
                                 </div>
                             </div>
-                        </a>
+                        <% } %>
                     <% } %>
                 </div>
                 <% }else{ %>
