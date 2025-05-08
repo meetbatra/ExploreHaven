@@ -1,6 +1,6 @@
-# 🌍 Explore Haven
+# 🌍 ExploreHaven
 
-**Explore Haven** is a travel and adventure booking platform that allows users to discover unique stays, book accommodations, and even list their own properties or experiences. Designed for adventure seekers, the platform provides a seamless way to explore destinations, manage bookings, and connect with hosts worldwide. This project is backend-heavy and uses basic HTML, CSS, and JavaScript for the frontend, without any frameworks like React.
+**ExploreHaven** is a travel and adventure booking platform that allows users to discover unique stays, book accommodations, and even list their own properties or experiences. Designed for adventure seekers, the platform provides a seamless way to explore destinations, manage bookings, and connect with hosts worldwide. This project is backend-heavy and uses basic HTML, CSS, and JavaScript for the frontend, without any frameworks like React.
 
 ## ✨ Features
 
